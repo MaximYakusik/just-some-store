@@ -1,0 +1,29 @@
+{
+  "name": "just-some-store",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "format": "prettier -w .",
+    "build": "rollup -c",
+    "prepare": "yarn build",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "babel-jest": "^28.1.2",
+    "jest": "^28.1.2",
+    "prettier": "^2.7.1",
+    "rollup": "^2.76.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "terser": "^5.14.1"
+  }
+}
