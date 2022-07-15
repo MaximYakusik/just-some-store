@@ -30,7 +30,7 @@ function bench() {
     count++;
   }
 
-  store.subscribe(listener);
+  const unsubscribe = store.subscribe(listener);
 
   for (let i = 0; i < 100; i++) {
     const state = store.getState();
@@ -39,7 +39,7 @@ function bench() {
     store.dispatch(setLast(state.last + 1));
   }
 
-  store.unsubscribe(listener);
+  unsubscribe();
 
   const state = store.getState();
 

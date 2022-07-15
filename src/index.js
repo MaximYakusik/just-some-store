@@ -17,12 +17,13 @@ export const createStore = () => {
   const getState = () => state;
   const subscribe = listener => {
     listeners.push(listener);
-  };
-  const unsubscribe = callback => {
-    const index = listeners.lastIndexOf(callback);
-    if (index !== -1) {
-      listeners.splice(index, 1);
-    }
+
+    return () => {
+      const index = listeners.lastIndexOf(listener);
+      if (index !== -1) {
+        listeners.splice(index, 1);
+      }
+    };
   };
   const initState = initialState => (state = initialState);
   const action = actionFn => {
@@ -37,7 +38,6 @@ export const createStore = () => {
       dispatch,
       getState,
       subscribe,
-      unsubscribe,
     },
     initState,
     action,

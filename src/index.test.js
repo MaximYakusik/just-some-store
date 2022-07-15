@@ -1,7 +1,7 @@
 import { createStore } from './index';
 
 describe('just some store', () => {
-  let store, initState, action, setSome, setOther, listener;
+  let store, initState, action, setSome, setOther, listener, unsubscribe;
 
   beforeEach(() => {
     const storeBuilder = createStore();
@@ -11,7 +11,7 @@ describe('just some store', () => {
     initState = storeBuilder.initState;
     action = storeBuilder.action;
 
-    store.subscribe(listener);
+    unsubscribe = store.subscribe(listener);
 
     setSome = action((state, some) => {
       return {
@@ -88,7 +88,7 @@ describe('just some store', () => {
   });
 
   it('should unsubscribe listener', () => {
-    store.unsubscribe(listener);
+    unsubscribe();
 
     store.dispatch(setSome('newSomeValue'));
 
@@ -107,8 +107,9 @@ describe('just some store', () => {
     expect(listener).not.toBeCalled();
   });
 
-  it('should execute unsubscribe by null without throw error', () => {
-    store.unsubscribe(null);
+  it('should execute unsubscribe twice without throw error', () => {
+    unsubscribe();
+    unsubscribe();
     expect(store.getState()).toEqual({
       some: 'value',
       other: 'value',
