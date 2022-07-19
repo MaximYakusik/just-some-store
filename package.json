@@ -1,12 +1,24 @@
 {
   "name": "stog",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "description": "Simple state management",
+  "keywords": [
+    "state",
+    "model",
+    "store",
+    "functional",
+    "immutable"
+  ],
   "license": "MIT",
   "private": false,
+  "author": "Maksim Yakusik <flamstr@gmail.com>",
+  "repository": "git@github.com:MaximYakusik/stog.git",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "dist/**/*"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "format": "prettier -w .",
