@@ -1,15 +1,17 @@
-# just-some-store
+# stog
+
+Simple state management
 
 ## Install
 
 ```
-$ yarn add just-some-store
+$ yarn add stog
 ```
 
 ## Usage
 
 ```js
-import { createStore } from 'just-some-store';
+import { createStore } from 'stog';
 
 // initialize store
 const { store, initState, action } = createStore();

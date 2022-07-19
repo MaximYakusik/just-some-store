@@ -1,6 +1,6 @@
 import { createStore } from './index';
 
-describe('just some store', () => {
+describe('stog', () => {
   let store, initState, action, setSome, setOther, listener, unsubscribe;
 
   beforeEach(() => {
